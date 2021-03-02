@@ -2,8 +2,6 @@ package sort;
 
 import util.ArrTools;
 
-import java.util.Arrays;
-
 /**
  * @author kelvin
  * @create 2021-03-01 23:02
@@ -23,7 +21,7 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        boolean succeed = ArrTools.isCorrect(SelectionSort::selectionSort, 50000, 100, 100);
+        boolean succeed = ArrTools.isSortAlgoCorrect(SelectionSort::selectionSort, 50000, 100, 100);
         System.out.println(succeed ? "Nice!" : "Oh no");
     }
 }

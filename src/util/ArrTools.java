@@ -1,6 +1,5 @@
 package util;
 
-import java.lang.reflect.Method;
 import java.util.Arrays;
 
 /**
@@ -56,7 +55,7 @@ public class ArrTools {
         return arr;
     }
 
-    public static boolean isCorrect(FunctionCaller<int[]> caller, int testTime, int maxValue, int maxSize) {
+    public static boolean isSortAlgoCorrect(FunctionCaller<int[]> caller, int testTime, int maxValue, int maxSize) {
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
@@ -69,6 +68,26 @@ public class ArrTools {
             }
         }
         return true;
+    }
+
+    public static int[] generateRandomSortedArray(int maxSize, int maxValue) {
+        int[] arr = generateRandomArray(maxSize, maxValue);
+        Arrays.sort(arr);
+        return arr;
+    }
+
+    public static int bruteForceFirstElementIndex(int[] arr, int target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = generateRandomSortedArray(20, 10);
+        System.out.println(Arrays.toString(arr));
     }
 
 }

@@ -21,7 +21,7 @@ public class InsertSort {
     }
 
     public static void main(String[] args) {
-        boolean succeed = ArrTools.isCorrect(InsertSort::insertSort, 50000, 100, 100);
+        boolean succeed = ArrTools.isSortAlgoCorrect(InsertSort::insertSort, 50000, 100, 100);
         System.out.println(succeed ? "Nice!" : "Oh no");
     }
 }
