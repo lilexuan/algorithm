@@ -35,16 +35,8 @@ public class LocalMin {
     }
 
     public static void main(String[] args) {
-        int testTime = 50000;
-        for (int i = 0; i < testTime; i++) {
-            int[] arr2 = ArrTools.generateRandomArray(20, 20);
-            int res = localMin(arr2);
-            if (res == -2) {
-                System.out.println("error!");
-                System.out.println(Arrays.toString(arr2));
-                return;
-            }
-        }
-        System.out.println("nice!");
+        int[] arr = ArrTools.generateRandomArray(20, 20);
+        System.out.println(Arrays.toString(arr));
+        System.out.println(localMin(arr));
     }
 }
