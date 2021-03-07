@@ -1,8 +1,6 @@
 package search;
 
 import util.ArrTools;
-
-import javax.sound.midi.MidiChannel;
 import java.util.Arrays;
 
 /**
