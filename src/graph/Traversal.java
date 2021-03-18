@@ -71,24 +71,39 @@ public class Traversal {
 
     public static void main(String[] args) {
         Integer[][] matrix = {
-                {1, 1, 2},
-                {1, 1, 6},
+                {1, 2, 1},
+                {1, 6, 1},
                 {1, 2, 3},
                 {1, 6, 4},
                 {1, 3, 4},
                 {1, 6, 5},
                 {1, 4, 5}
         };
-        Graph graph = GraphTools.createGraph(matrix);
-        Node node = graph.nodes.get(1);
+        System.out.println("============================ direct ====================================");
+        Graph graphDir = GraphTools.createGraph(matrix, true);
+        Node nodeDir = graphDir.nodes.get(1);
         System.out.println("----------------------- bfs -------------------------");
-        bfs(node);
+        bfs(nodeDir);
         System.out.println();
         System.out.println("----------------------- dfsRecur -------------------------");
-        dfsRecur(node);
+        dfsRecur(nodeDir);
         System.out.println();
         System.out.println("----------------------- dfsUnRecur -------------------------");
-        dfsUnRecur(node);
+        dfsUnRecur(nodeDir);
         System.out.println();
+
+        System.out.println("======================== undirect ============================");
+        Graph graphUnDir = GraphTools.createGraph(matrix, false);
+        Node nodeUnDir = graphUnDir.nodes.get(1);
+        System.out.println("----------------------- bfs -------------------------");
+        bfs(nodeUnDir);
+        System.out.println();
+        System.out.println("----------------------- dfsRecur -------------------------");
+        dfsRecur(nodeUnDir);
+        System.out.println();
+        System.out.println("----------------------- dfsUnRecur -------------------------");
+        dfsUnRecur(nodeUnDir);
+        System.out.println();
+
     }
 }

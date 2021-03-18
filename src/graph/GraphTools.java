@@ -5,7 +5,7 @@ package graph;
  * @create 2021-03-17 17:35
  */
 public class GraphTools {
-    public static Graph createGraph(Integer[][] matrix) {
+    public static Graph createGraph(Integer[][] matrix, boolean direct) {
         Graph graph = new Graph();
         for (Integer[] info : matrix) {
             // 获取权重, from节点, to节点
@@ -25,16 +25,24 @@ public class GraphTools {
             Node fromNode = graph.nodes.get(from);
             Node toNode = graph.nodes.get(to);
 
-            // from点加上to点,注意to点不需要, 记得更新对应的出度和入度
+            // from点加上to点,如果是无向图, 则to点也要加上from点, 记得更新对应的出度和入度
             fromNode.nexts.add(toNode);
             fromNode.out++;
             toNode.in++;
+            if (!direct) {
+                toNode.nexts.add(fromNode);
+                toNode.out++;
+                fromNode.in++;
+            }
 
             // 创建对应的边
             Edge edge = new Edge(weight, fromNode, toNode);
 
-            // from点加上这条边
+            // from点加上这条边, 如果是无向图, 则to点也要加上这条边.
             fromNode.edges.add(edge);
+            if (!direct) {
+                toNode.edges.add(edge);
+            }
 
             // 图中加上这条边
             graph.edges.add(edge);
