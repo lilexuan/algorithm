@@ -7,7 +7,7 @@ import java.util.*;
  * @create 2021-03-18 20:50
  */
 public class Prim {
-    public static Set<Edge> prim(Graph graph) {
+    public static Set<Edge> prim(UndirectedGraph graph) {
         Set<Edge> res = new HashSet<>();
         Set<Node> set = new HashSet<>();
         PriorityQueue<Edge> minHeap = new PriorityQueue<>((o1, o2) -> {
@@ -16,7 +16,8 @@ public class Prim {
         for (Node node : graph.nodes.values()) {
             if (!set.contains(node)) {
                 set.add(node);
-                for (Edge edge : node.edges) {
+                for (Adj adj : node.adjs) {
+                    Edge edge = adj.edge;
                     minHeap.offer(edge);
                 }
                 while (!minHeap.isEmpty()) {
@@ -24,7 +25,8 @@ public class Prim {
                     if (!set.contains(edge.to)) {
                         set.add(edge.to);
                         res.add(edge);
-                        for (Edge nextEdge : edge.to.edges) {
+                        for (Adj adj : edge.to.adjs) {
+                            Edge nextEdge = adj.edge;
                             minHeap.offer(nextEdge);
                         }
                     } else if (!set.contains(edge.from)) {
@@ -32,7 +34,8 @@ public class Prim {
                         // 不一定是toNode, 也有可能是fromNode, 所以一条边的两个节点都得检查
                         set.add(edge.from);
                         res.add(edge);
-                        for (Edge nextEdge : edge.from.edges) {
+                        for (Adj adj : edge.from.adjs) {
+                            Edge nextEdge = adj.edge;
                             minHeap.offer(nextEdge);
                         }
                     }
@@ -53,9 +56,9 @@ public class Prim {
                 {6, 4, 5},
                 {4, 4, 6},
                 {2, 3, 6},
-                {5, 5, 6}
+                {6, 5, 6}
         };
-        Graph graph = GraphTools.createGraph(matrix, false);
+        UndirectedGraph graph = GraphTools.createUndirectedGraph(matrix);
         Set<Edge> edges = prim(graph);
         for (Edge edge : edges) {
             System.out.println(edge.from.value + "-" + edge.to.value);

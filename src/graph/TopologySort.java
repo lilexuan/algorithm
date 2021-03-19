@@ -7,7 +7,7 @@ import java.util.*;
  * @create 2021-03-18 9:59
  */
 public class TopologySort {
-    public static List<Node> topologySort(Graph graph) {
+    public static List<Node> topologySort(DirectedGraph graph) {
         HashMap<Node, Integer> inMap = new HashMap<>();
         Queue<Node> zeroQueue = new LinkedList<>();
         for (Node node : graph.nodes.values()) {
@@ -20,7 +20,8 @@ public class TopologySort {
         while (!zeroQueue.isEmpty()) {
             Node cur = zeroQueue.poll();
             res.add(cur);
-            for (Node next : cur.nexts) {
+            for (Adj adj : cur.adjs) {
+                Node next = adj.node;
                 inMap.put(next, inMap.get(next) - 1);
                 if (inMap.get(next) == 0) {
                     zeroQueue.offer(next);
@@ -40,7 +41,7 @@ public class TopologySort {
                 {1, 3, 5},
                 {1, 4, 5}
         };
-        Graph graph = GraphTools.createGraph(matrix, true);
+        DirectedGraph graph = GraphTools.createDirectedGraph(matrix);
         List<Node> nodes = topologySort(graph);
         for (Node node : nodes) {
             System.out.println(node.value);

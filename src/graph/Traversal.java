@@ -21,7 +21,8 @@ public class Traversal {
         while (!queue.isEmpty()) {
             Node cur = queue.poll();
             System.out.print(cur.value + " ");
-            for (Node next : cur.nexts) {
+            for (Adj adj : cur.adjs) {
+                Node next = adj.node;
                 if (!set.contains(next)) {
                     queue.offer(next);
                     set.add(next);
@@ -41,7 +42,8 @@ public class Traversal {
         }
         System.out.print(node.value + " ");
         set.add(node);
-        for (Node next : node.nexts) {
+        for (Adj adj : node.adjs) {
+            Node next = adj.node;
             if (!set.contains(next)) {
                 dfs(next, set);
             }
@@ -59,7 +61,8 @@ public class Traversal {
         while (!stack.isEmpty()) {
             Node cur = stack.pop();
             System.out.print(cur.value + " ");
-            for (Node next : cur.nexts) {
+            for (Adj adj : cur.adjs) {
+                Node next = adj.node;
                 if (!set.contains(next)) {
                     stack.push(next);
                     set.add(next);
@@ -79,7 +82,7 @@ public class Traversal {
                 {1, 4, 5}
         };
         System.out.println("============================ direct ====================================");
-        Graph graphDir = GraphTools.createGraph(matrix, true);
+        DirectedGraph graphDir = GraphTools.createDirectedGraph(matrix);
         Node nodeDir = graphDir.nodes.get(1);
         System.out.println("----------------------- bfs -------------------------");
         bfs(nodeDir);
@@ -92,7 +95,7 @@ public class Traversal {
         System.out.println();
 
         System.out.println("======================== undirect ============================");
-        Graph graphUnDir = GraphTools.createGraph(matrix, false);
+        UndirectedGraph graphUnDir = GraphTools.createUndirectedGraph(matrix);
         Node nodeUnDir = graphUnDir.nodes.get(1);
         System.out.println("----------------------- bfs -------------------------");
         bfs(nodeUnDir);

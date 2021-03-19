@@ -9,7 +9,7 @@ import java.util.*;
  * @create 2021-03-18 16:09
  */
 public class Kruskal {
-    public static Set<Edge> kruskal(Graph graph) {
+    public static Set<Edge> kruskal(UndirectedGraph graph) {
         Set<Edge> res = new HashSet<>();
         UnionFind<Node> uf = new UnionFind<>();
         uf.init(new ArrayList<>(graph.nodes.values()));
@@ -52,9 +52,9 @@ public class Kruskal {
                 {6, 4, 5},
                 {4, 4, 6},
                 {2, 3, 6},
-                {5, 5, 6}
+                {6, 5, 6}
         };
-        Graph graph = GraphTools.createGraph(matrix, false);
+        UndirectedGraph graph = GraphTools.createUndirectedGraph(matrix);
         Set<Edge> edges = kruskal(graph);
         for (Edge edge : edges) {
             System.out.println(edge.from.value + "-" + edge.to.value);
