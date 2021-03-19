@@ -1,6 +1,5 @@
 package graph;
 
-import javax.lang.model.element.VariableElement;
 import java.util.Deque;
 import java.util.HashSet;
 import java.util.LinkedList;
