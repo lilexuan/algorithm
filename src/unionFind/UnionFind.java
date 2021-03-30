@@ -9,10 +9,12 @@ import java.util.*;
 public class UnionFind<T> {
     public HashMap<T, T> parent;
     public HashMap<T, Integer> size;
+    public int count;
 
     public UnionFind(){
         this.parent = new HashMap<>();
         this.size = new HashMap<>();
+        this.count = 0;
     }
 
     public void init(List<T> list) {
@@ -20,6 +22,13 @@ public class UnionFind<T> {
             parent.put(elem, elem);
             size.put(elem, 1);
         }
+        count += list.size();
+    }
+
+    public void insert(T elem) {
+        parent.put(elem, elem);
+        size.put(elem, 1);
+        count++;
     }
 
     public T findParent(T elem) {
@@ -49,6 +58,7 @@ public class UnionFind<T> {
             size.put(f2, size.get(f1) + size.get(f2));
             size.remove(f1);
         }
+        count--;
     }
 
     public boolean isUnion(T elem1, T elem2) {
