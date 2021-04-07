@@ -75,15 +75,21 @@ public class GetNearMax {
     }
 
     public static void main(String[] args) {
-        int[] arr1 = {1, 23, 34, 7, 9, 0, 4, 35, 45, 2, 234};
-        int[][] res = getNearMaxNoRepeat(arr1);
-        for (int[] nums : res) {
-            System.out.println(Arrays.toString(nums));
-        }
+//        int[] arr1 = {1, 23, 34, 7, 9, 0, 4, 35, 45, 2, 234};
+//        int[][] res = getNearMaxNoRepeat(arr1);
+//        for (int[] nums : res) {
+//            System.out.println(Arrays.toString(nums));
+//        }
+//
+//        int[] arr2 = {1, 2, 3, 34, 34, 7, 9, 8, 4, 23, 12,435 ,234, 123, 23};
+//        int[][] res2 = getNearMaxRepeat(arr2);
+//        for (int[] nums : res2) {
+//            System.out.println(Arrays.toString(nums));
+//        }
 
-        int[] arr2 = {1, 2, 3, 34, 34, 7, 9, 8, 4, 23, 12,435 ,234, 123, 23};
-        int[][] res2 = getNearMaxRepeat(arr2);
-        for (int[] nums : res2) {
+        int[] arr3 = {2, 1, 0, 2};
+        int[][] res3 = getNearMaxRepeat(arr3);
+        for (int[] nums : res3) {
             System.out.println(Arrays.toString(nums));
         }
     }
