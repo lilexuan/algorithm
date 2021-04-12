@@ -6,12 +6,14 @@ package tree;
  */
 class TreeNode {
     int value;
+    int height;
     TreeNode left;
     TreeNode right;
     TreeNode(int value) {
         this.value = value;
         this.left = null;
         this.right = null;
+        this.height = 1;
     }
 }
 
