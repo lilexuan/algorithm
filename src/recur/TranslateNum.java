@@ -26,8 +26,8 @@ public class TranslateNum {
     }
 
     public static void main(String[] args) {
-        String str1 = "123456";
-        String str2 = "111111";
+        String str1 = "1250156147";
+        String str2 = "2361267258";
         System.out.println(count(str1.toCharArray(), 0));
         System.out.println(count(str2.toCharArray(), 0));
     }
