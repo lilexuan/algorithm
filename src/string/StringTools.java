@@ -5,17 +5,17 @@ import java.util.Arrays;
 public class StringTools {
     public static String generateRandomString(int maxLength) {
         final String str = "qwertyuioplkjhgfdsazxcvbnm";
-        int length = (int)Math.random() * maxLength;
+        int length = (int)(Math.random() * maxLength);
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {
-            int index = (int)Math.random() * str.length();
+            int index = (int)(Math.random() * str.length());
             sb.append(str.charAt(index));
         }
         return sb.toString();
     }
 
     public static String[] generateRandomStringArray(int arrayMaxLength, int stringMaxLength) {
-        int length = (int)Math.random() * arrayMaxLength;
+        int length = (int)(Math.random() * arrayMaxLength);
         String[] strArray = new String[length];
         for (int i = 0; i < length; i++) {
             strArray[i] = generateRandomString(stringMaxLength);
