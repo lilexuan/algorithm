@@ -15,13 +15,13 @@ public class LC139 {
         List<String> wordDict = new ArrayList<>();
         wordDict.add("leet");
         wordDict.add("code");
-        Solution solution = new Solution();
-        boolean b = solution.wordBreak(s, wordDict);
+        Solution22 solution22 = new Solution22();
+        boolean b = solution22.wordBreak(s, wordDict);
         System.out.println(b);
     }
 }
 
-class Solution {
+class Solution22 {
     public boolean wordBreak(String s, List<String> wordDict) {
         Trie trie = new Trie();
         for (String word : wordDict) {

@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class SumEqualS {
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution33 solution = new Solution33();
         ArrayList<ArrayList<Integer>> arrayLists = solution.FindContinuousSequence(15);
         System.out.println(arrayLists.toString());
     }
 }
 
-class Solution {
+class Solution33 {
     public ArrayList<ArrayList<Integer>> FindContinuousSequence(int sum) {
         ArrayList<ArrayList<Integer>> res = new ArrayList<>();
         ArrayList<Integer> path = new ArrayList<>();
