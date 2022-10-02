@@ -39,10 +39,9 @@ public class HeapSort {
             heapInsert(arr, i);
         }
         int heapSize = arr.length;
-        ArrTools.swap(arr, 0, --heapSize);
         while (heapSize > 0) {
-            heapify(arr, 0, heapSize);
             ArrTools.swap(arr, 0, --heapSize);
+            heapify(arr, 0, heapSize);
         }
     }
 
